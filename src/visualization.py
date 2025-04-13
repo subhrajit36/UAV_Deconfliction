@@ -81,7 +81,7 @@ def plot_3d_trajectories(primary_mission: Mission, schedule_list: List[Mission],
     ax.plot(
         [wp.x for wp in primary_mission.waypoints],
         [wp.y for wp in primary_mission.waypoints],
-        [wp.z for wp in primary_mission.waypoints],
+        [wp.z_altitude for wp in primary_mission.waypoints],
         'bo-', label='Primary Mission', linewidth=2, markersize=8
     )
 
@@ -90,7 +90,7 @@ def plot_3d_trajectories(primary_mission: Mission, schedule_list: List[Mission],
         ax.plot(
             [wp.x for wp in current_schedule.waypoints],
             [wp.y for wp in current_schedule.waypoints],
-            [wp.z for wp in current_schedule.waypoints],
+            [wp.z_altitude for wp in current_schedule.waypoints],
             'ro--', label=f'Schedule {i}', alpha=0.5, markersize=6
         )
 
@@ -128,7 +128,7 @@ def plot_3d_trajectories(primary_mission: Mission, schedule_list: List[Mission],
 
 def simulate_scenarios():
     """Simulate conflict-free and conflict-present scenarios in 3D."""
-    deconfliction_system = DeconflictionSystem(safety_buffer=5.0)
+    deconfliction_system = DeconflictionSystem(safety_buffer_distance=0.5)
 
     # Scenario 1: Conflict-free
     conflict_free_mission = Mission(

@@ -69,28 +69,28 @@ class Mission:
     * schedules = generate_sample_schedules()
     '''
 
-    def generate_sample_schedules() -> List[Mission]:
-        """Generate sample flight schedules with 3D waypoints."""
-        schedules = [
-            Mission(
-                waypoints=[
-                    Waypoint(0, 0, 100),
-                    Waypoint(10, 10, 120),
-                    Waypoint(20, 0, 110)
-                ],
-                t_start=0,
-                t_end=60
-            ),
-            Mission(
-                waypoints=[
-                    Waypoint(5, 5, 115),
-                    Waypoint(15, 15, 125),
-                    Waypoint(25, 5, 105)
-                ],
-                t_start=30,
-                t_end=90
-            )
-        ]
+def generate_sample_schedules() -> List[Mission]:
+    """Generate sample flight schedules with 3D waypoints."""
+    schedules = [
+        Mission(
+            waypoints=[
+                Waypoint(0, 0, 100),
+                Waypoint(10, 10, 120),
+                Waypoint(20, 0, 110)
+            ],
+            t_start=0,
+            t_end=60
+        ),
+        Mission(
+            waypoints=[
+                Waypoint(5, 5, 115),
+                Waypoint(15, 15, 125),
+                Waypoint(25, 5, 105)
+            ],
+            t_start=30,
+            t_end=90
+        )
+    ]
 
-        # Returns the list of schedules after populating with hardcoded waypoint and time data.
-        return schedules
+    # Returns the list of schedules after populating with hardcoded waypoint and time data.
+    return schedules

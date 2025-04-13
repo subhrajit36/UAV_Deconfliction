@@ -81,6 +81,7 @@ class DeconflictionSystem:
     * position = deconfliction.interpolate_position(my_mission, 45.1)
 
     '''
+
     def interpolate_position(self, drone_mission: Mission, current_time: float) -> Optional[Tuple[float, float, float]]:
         """Interpolate the drone's position at current_time in 3D."""
         if current_time < drone_mission.t_start or current_time > drone_mission.t_end or not drone_mission.validate():
@@ -102,7 +103,7 @@ class DeconflictionSystem:
 
         x_coord = start_waypoint.x + interpolation_factor * (end_waypoint.x - start_waypoint.x)
         y_coord = start_waypoint.y + interpolation_factor * (end_waypoint.y - start_waypoint.y)
-        z_coord = start_waypoint.z + interpolation_factor * (end_waypoint.z - start_waypoint.z)
+        z_coord = start_waypoint.z_altitude + interpolation_factor * (end_waypoint.z_altitude - start_waypoint.z_altitude)  # Changed from z to z_altitude
         
         position = (x_coord, y_coord, z_coord)
         print(f"Debug: t={current_time}, Interpolated position: {position}")
